@@ -1,0 +1,217 @@
+! Licensed under the Apache License, Version 2.0 (the "License");
+! you may not use this file except in compliance with the License.
+! You may obtain a copy of the License at
+!
+!     http://www.apache.org/licenses/LICENSE-2.0
+!
+! Unless required by applicable law or agreed to in writing, software
+! distributed under the License is distributed on an "AS IS" BASIS,
+! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+! See the License for the specific language governing permissions and
+! limitations under the License.
+!
+! Copyright 2014 Yandex LLC
+! All Rights Reserved.
+!
+! Author : Alexis Wilpert
+
+
+
+!-----------------------------------------------------------------------------------------------------------------------
+! YANDEX sampa ru-RU to X-SAMPA (version tuned for ASR)
+!
+! v1.0 - initial version
+! v1.1 - changed LEVEL assignment for some phonemes
+!      - geminate consonants removed
+!      - better definition of contexts
+!      - [?] removed
+! v1.2 - corrected typo in the orthographic context for [U]
+!      - changed description for [d_Z] (no palatalization)
+! v1.3 - new phoneme [d_z']
+! v1.4 - better description of mappings between levels
+! v1.5 - new phoneme [d_Z']
+! v2.0 - after analyzing actual transcriptions, it has been decided to remove either non-appearing phones or phones
+!        with a very low frequency
+! v2.1 - [d_z'] removed
+! v2.2 - [d_z'] corrected to [d_z] in [d_zIr"Zinsk@v@]
+!      - added context # _ [l] to the description of [A]
+! v2.3 - LEVEL assignments changed: level 1 includes all the consonants (except [d_Z] and [d_z]) and all stressed
+!        vowels except [A]; level 2 includes all the reduced vowels; and level 3 includes [d_Z], [d_z], [A] and all the
+!        diphthongs. The current G2P supports levels 1 and 2, but not 3
+! v2.4 - LEVEL assignments changed: level 1 is the one to be used in manual transcriptions. The rest of the levels are
+!        mainly for documentation only.
+
+:ALPHABET "x-YANDEX-asrsampa_ru-RU"
+
+
+! NOTE: the higher level includes the symbols in all lower levels; therefore, level 1 is the most basic one
+
+
+!  YANDEX    |  X-SAMPA              | LEVEL      | EXAMPLES
+!------------+-----------------------+------------+---------------------------------------------------------------------
+
+! CONSONANTS
+
+:MAP "S"     :TO "S"                 ! :LEVEL "1" ! :EX <шестнадцать>   [S@\s"nat_s@t']
+:MAP "Z"     :TO "Z"                 ! :LEVEL "1" ! :EX <нижний>        ["n'iZn'I_i]
+:MAP "b"     :TO "b"                 ! :LEVEL "1" ! :EX <лобня>         ["lobn'@]
+:MAP "d"     :TO "d"                 ! :LEVEL "1" ! :EX <ордынка>       [6r"d1nk@]
+:MAP "f"     :TO "f"                 ! :LEVEL "1" ! :EX <сущевский>     [sU"S'ofsk'I_i]
+:MAP "g"     :TO "g"                 ! :LEVEL "1" ! :EX <магазины>      [m@g6"z'in@\]
+:MAP "k"     :TO "k"                 ! :LEVEL "1" ! :EX <широкая>       [S@\"rok@j@]
+:MAP "l"     :TO "l"                 ! :LEVEL "1" ! :EX <владивосток>   [vl@d'Iv6s"tok]
+:MAP "m"     :TO "m"                 ! :LEVEL "1" ! :EX <марьино>       ["mar'jIn@]
+:MAP "n"     :TO "n"                 ! :LEVEL "1" ! :EX <донской>       [d6ns"ko_i]
+:MAP "p"     :TO "p"                 ! :LEVEL "1" ! :EX <спасская>      [c"pask@j@]
+:MAP "r"     :TO "r"                 ! :LEVEL "1" ! :EX <дорожная>      [d6"roZn@j@]
+:MAP "s"     :TO "s"                 ! :LEVEL "1" ! :EX <советской>     [s6"v'et_sk@_i]
+:MAP "t"     :TO "t"                 ! :LEVEL "1" ! :EX <шмитовский>    [S"m'it@fsk'I_i]
+:MAP "v"     :TO "v"                 ! :LEVEL "1" ! :EX <крылова>       [kr@\"lov@]
+:MAP "x"     :TO "x"                 ! :LEVEL "1" ! :EX <обуховской>    [6bUx6fs"ko_i]
+:MAP "z"     :TO "z"                 ! :LEVEL "1" ! :EX <зуево>         ["zujIv@]
+
+! palatalized
+
+:MAP "S'"    :TO "S" "'"             ! :LEVEL "1" ! :EX <роща>          ["roS'@]
+:MAP "b'"    :TO "b" "'"             ! :LEVEL "1" ! :EX <юбилейный>     [jUb'I"l'e_in@\_i]
+:MAP "d'"    :TO "d" "'"             ! :LEVEL "1" ! :EX <одесса>        [6"d'es@]
+:MAP "f'"    :TO "f" "'"             ! :LEVEL "1" ! :EX <профессора>    [pr6"f'es@r@]
+:MAP "g'"    :TO "g" "'"             ! :LEVEL "1" ! :EX <ногинск>       [n6"g'insk]
+:MAP "k'"    :TO "k" "'"             ! :LEVEL "1" ! :EX <волжский>      ["volZsk'I_i]
+:MAP "l'"    :TO "l" "'"             ! :LEVEL "1" ! :EX <люблино>       [l'Ubl'I"no]
+:MAP "m'"    :TO "m" "'"             ! :LEVEL "1" ! :EX <раменское>     ["ram'Insk@jI]
+:MAP "n'"    :TO "n" "'"             ! :LEVEL "1" ! :EX <рязань>        [r'I"zan']
+:MAP "p'"    :TO "p" "'"             ! :LEVEL "1" ! :EX <пятого>        ["p'at@v@]
+:MAP "r'"    :TO "r" "'"             ! :LEVEL "1" ! :EX <серебрякова>   [s'Ir'Ibr'I"kov@]
+:MAP "s'"    :TO "s" "'"             ! :LEVEL "1" ! :EX <восьмое>       [v6s'"mojI]
+:MAP "t'"    :TO "t" "'"             ! :LEVEL "1" ! :EX <ватутина>      [v6"tut'In@]
+:MAP "v'"    :TO "v" "'"             ! :LEVEL "1" ! :EX <авиаторов>     [6v'I"at@r@f]
+:MAP "x'"    :TO "x" "'"             ! :LEVEL "1" ! :EX <выхино>        ["v1x'In@]
+:MAP "z'"    :TO "z" "'"             ! :LEVEL "1" ! :EX <изюмская>      [I"z'umsk@j@]
+
+! affricates
+
+:MAP "t_s"   :TO "t" "_" "s"         ! :LEVEL "1" ! :EX <больница>      [b6l'"n'it_s@]
+:MAP "t_S'"  :TO "t" "_" "S" "'"     ! :LEVEL "1" ! :EX <четвертый>     [t_S'It"v'ort@\_i]
+:MAP "d_z"   :TO "d" "_" "z"         ! :LEVEL "3" ! :EX <дзержинского>  [d_zIr"Zinsk@v@]
+:MAP "d_Z"   :TO "d" "_" "Z"         ! :LEVEL "3" ! :EX <джалиля>       [d_Z6"l'il'@]
+
+! approximant
+
+:MAP "j"     :TO "j"                 ! :LEVEL "1" ! :EX <верхние>       ["v'erxn'IjI]
+
+! VOWELS
+
+! stressed
+
+:MAP "i"     :TO "i"                 ! :LEVEL "1" ! :EX <цеткин>        [t_sEt"k'in]
+:MAP "1"     :TO "1"                 ! :LEVEL "1" ! :EX <холмы>         [x6l"m1]
+
+:MAP "e"     :TO "e"                 ! :LEVEL "1" ! :EX <репина>        ["r'ep'In@]
+:MAP "E"     :TO "E"                 ! :LEVEL "1" ! :EX <церковь>       ["t_sErk@f']
+
+:MAP "a"     :TO "a"                 ! :LEVEL "1" ! :EX <новаторов>     [n6"vat@r@f]
+:MAP "{"     :TO "{"                 ! :LEVEL "2" ! :EX <блядь>         [b"l'{t']
+:MAP "A"     :TO "A"                 ! :LEVEL "2" ! :EX <чкалова>       [t_S'"kAl@v@]
+
+:MAP "o"     :TO "o"                 ! :LEVEL "1" ! :EX <обороны>       [6b6"ron@\]
+:MAP "8_c"   :TO "8" "_c"            ! :LEVEL "2" ! :EX <летчика>       ["l'8_ct_S'Ik@]
+
+:MAP "u"     :TO "u"                 ! :LEVEL "1" ! :EX <круглосуточно> [krUgl6"sut@t_S'n@]
+:MAP "}"     :TO "}"                 ! :LEVEL "1" ! :EX <щукинская>     ["S'}k'Insk@j@]
+
+! unstressed/reduced
+
+:MAP "I"     :TO "I"                 ! :LEVEL "1" ! :EX <евросеть>      [jIvr6"s'et']
+:MAP "@\"    :TO "@\"                ! :LEVEL "1" ! :EX <улицы>         ["ul'It_s@\]
+
+:MAP "6"     :TO "6"                 ! :LEVEL "1" ! :EX <москве>        [m6sk"v'e]
+:MAP "@"     :TO "@"                 ! :LEVEL "1" ! :EX <сауна>         ["saUn@]
+
+:MAP "U"     :TO "U"                 ! :LEVEL "1" ! :EX <урицкого>      [U"r'it_sk@v@]
+:MAP "8"     :TO "8"                 ! :LEVEL "2" ! :EX <бирюлевская>   [b'Ir'8"l'ofsk@j@]
+
+! DIPHTHONGS
+
+! stressed
+
+:MAP "i_i"   :TO "i"  "i" "_^"       ! :LEVEL "3" ! :EX <олимпийская>   [6l'Im"p'i_isk@j@]
+
+:MAP "e_i"   :TO "e"  "i" "_^"       ! :LEVEL "3" ! :EX <енисейская>    [jIn'I"s'e_isk@j@]
+
+:MAP "a_i"   :TO "a"  "i" "_^"       ! :LEVEL "3" ! :EX <измайловский>  [Iz"ma_il@fsk'I_i]
+:MAP "{_i"   :TO "{"  "i" "_^"       ! :LEVEL "3" ! :EX <хозяйства>     [x6"z'{_istv@]
+
+:MAP "o_i"   :TO "o"  "i" "_^"       ! :LEVEL "3" ! :EX <ночной>        [n6t_S'"no_i]
+
+:MAP "u_i"   :TO "u"  "i" "_^"       ! :LEVEL "3" ! :EX <куйбышева>     ["ku_ib@\S@\v@]
+
+! unstressed
+
+:MAP "I_i"   :TO "I"  "i" "_^"       ! :LEVEL "3" ! :EX <чайковского>   [t_S'I_i"kofsk@v@]
+
+:MAP "6_i"   :TO "6"  "i" "_^"       ! :LEVEL "3" ! :EX <байкальская>   [b6_i"kal'sk@j@]
+:MAP "@_i"   :TO "@"  "i" "_^"       ! :LEVEL "3" ! :EX <расковой>      [r6s"kov@_i]
+
+:MAP "U_i"   :TO "U"  "i" "_^"       ! :LEVEL "3" ! :EX <чуйкова>       [t_S'U_i"kov@]
+
+! other symbols
+
+:MAP '"'     :TO '"'                 ! :LEVEL "1" ! stress marker
+
+
+
+! The following context descriptions are for information purposes and should serve only as a guideline.
+
+! PHONEME |  ORTHOGRAPHIC CONTEXT                                        | PHONETIC CONTEXT
+!---------+--------------------------------------------------------------+----------------------------------------------
+
+! [i]     ! <и>                                                          ! ST && ( SC _ || ## _ )
+! [1]     ! <ы> || ( <и> / <ж,ш,ц> _ )                                   ! ST && HC _
+
+! [e]     ! <е> || ( <э> / # _ )                                         ! ST && _ SC
+! [E]     ! <е> || ( <э> / # _ )                                         ! ST && ¬_ SC
+
+! [a]     ! <а,я>                                                        ! ST && ¬( SC _ SC || # _ [l] || HC _ [l] )
+! [{]     ! <я> || ( <а> / <ч,щ> _ )                                     ! ST && SC _ SC
+! [A]     ! <а>                                                          ! ST && ( # _ [l] || HC _ [l] )
+
+! [o]     ! <o,е,ё>                                                      ! ( ST && SC ¬_ SC ) || ¬ST / W = foreign
+! [8_c]   ! <е,ё>                                                        ! ST && SC _ SC
+
+! [u]     ! <у,ю>                                                        ! ST && SC ¬_ SC
+! [}]     ! <ю> || ( <у> / <ч,щ> _ )                                     ! ST && SC _ SC
+
+! [I]     ! <и,е,э> || ( <я> / _ ST ) || ( <а> / ( _ ST && <ч,щ> _ ) )   ! ¬ST && ( SC _ || ## _ || SC # _ )
+! [@\]    ! <ы,э> || ( <и,е> / <ж,ш,ц> _ )                               ! ¬ST && ( HC _ || HC # _ )
+
+! [6]     ! <а,о>                                                        ! ¬ST && SC ¬_ && ( ST-1 || # _ || ( _ V || V _ ) / V = <а,о> )
+! [@]     ! <а,о> / ( _ ST && ¬( <а> / <ч,щ> _ ) ) || ( <а,о,я> / ST _ ) ! ¬ST && ( ( _ ST && ( SC ¬ _ && ¬ST-1 && # ¬_ && V ¬_ && ¬_ V ) ) || ST _ )
+
+! [U]     ! <у,ю>                                                        ! ¬ST && SC ¬_ SC
+! [8]     ! <ю> || ( <у> / <ч,щ> _ )                                     ! ¬ST && SC _ SC
+
+
+!-----------------------------------------------------------------------------------------------------------------------
+
+! Meaning of the symbols used to describe the contexts:
+
+! #    --> word boundary
+! ##   --> word boundary with pause
+! ¬    --> NOT
+! &&   --> AND
+! ||   --> OR
+! /    --> IF (x / y _ --> x if x follows y)
+! ()   --> grouping
+! =    --> IS
+! W    --> word
+! ;    --> separates orthographic from phonetic contexts
+! _    --> positions (_ SC = before soft consonant, SC _ = after soft consonant)
+! []   --> phoneme
+! <>   --> grapheme
+! ST   --> stress(ed syllable)
+! ST-1 --> pretonic position, immediately preceding the stressed syllable
+! SC   --> soft consonants: palatalized
+! HC   --> hard consonants: all other consonants that are not soft
+! C    --> consonant
+! V    --> vowel

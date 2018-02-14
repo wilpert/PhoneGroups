@@ -1,0 +1,104 @@
+! Licensed under the Apache License, Version 2.0 (the "License");
+! you may not use this file except in compliance with the License.
+! You may obtain a copy of the License at
+!
+!     http://www.apache.org/licenses/LICENSE-2.0
+!
+! Unless required by applicable law or agreed to in writing, software
+! distributed under the License is distributed on an "AS IS" BASIS,
+! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+! See the License for the specific language governing permissions and
+! limitations under the License.
+!
+! Copyright 2014 Yandex LLC
+! All Rights Reserved.
+!
+! Author : Alexis Wilpert
+
+
+!-----------------------------------------------------------------------------------------------------------------------
+! YANDEX sampa en-US to X-SAMPA
+!
+! v1.0 - initial version
+! v1.1 - simplification of Yandex en-US diphthongs
+
+
+:ALPHABET "x-YANDEX-sampa_en-US"
+
+
+
+!  YANDEX    |  X-SAMPA              | EXAMPLES
+!------------+-----------------------+----------------------------------------------------------------------------------
+
+! CONSONANTS
+
+! plosives
+
+:MAP "b"     :TO "b"                 ! :EX <nab>
+:MAP "d"     :TO "d"                 ! :EX <pod>
+:MAP "g"     :TO "g"                 ! :EX <fig>
+:MAP "k"     :TO "k"                 ! :EX <act>
+:MAP "p"     :TO "p"                 ! :EX <imp>
+:MAP "t"     :TO "t"                 ! :EX <tap>
+
+! fricatives
+
+:MAP "D"     :TO "D"                 ! :EX <the>
+:MAP "S"     :TO "S"                 ! :EX <she>
+:MAP "T"     :TO "T"                 ! :EX <bath>
+:MAP "Z"     :TO "Z"                 ! :EX <vision>
+:MAP "f"     :TO "f"                 ! :EX <elf>
+:MAP "h"     :TO "h"                 ! :EX <had>
+:MAP "s"     :TO "s"                 ! :EX <sip>
+:MAP "v"     :TO "v"                 ! :EX <average>
+:MAP "z"     :TO "z"                 ! :EX <zoo>
+
+! affricates
+
+:MAP "d_Z"    :TO "d" "_" "Z"        ! :EX <vegetable>
+:MAP "t_S"    :TO "t" "_" "S"        ! :EX <ouch>
+
+! nasals
+
+:MAP "N"     :TO "N"                 ! :EX <bang>
+:MAP "m"     :TO "m"                 ! :EX <aim>
+:MAP "n"     :TO "n"                 ! :EX <and>
+
+! liquids
+
+:MAP "l"     :TO "l"                 ! :EX <ail>
+:MAP "r\"    :TO "r\"                ! :EX <ire>
+
+! approximants
+
+:MAP "j"     :TO "j"                 ! :EX <you>
+:MAP "w"     :TO "w"                 ! :EX <win>
+:MAP "w_0"   :TO "w" "_0"            ! :EX <white>
+
+! VOWELS
+
+:MAP "{"     :TO "{"                 ! :EX <dab>
+:MAP "@"     :TO "@"                 ! :EX <ado>
+:MAP "3"     :TO "3"                 ! :EX <burn>
+:MAP "A"     :TO "A"                 ! :EX <bob>
+:MAP "E"     :TO "E"                 ! :EX <red>
+:MAP "I"     :TO "I"                 ! :EX <hid>
+:MAP "Q"     :TO "Q"                 ! :EX <dog>
+:MAP "U"     :TO "U"                 ! :EX <book>
+:MAP "i"     :TO "i"                 ! :EX <see>
+:MAP "u"     :TO "u"                 ! :EX <too>
+
+! DIPHTHONGS
+
+:MAP "e_@"   :TO "e" "@" "_^"        ! :EX <air>
+:MAP "a_U"   :TO "a" "U" "_^"        ! :EX <how>
+:MAP "O_I"   :TO "O" "I" "_^"        ! :EX <oil>
+:MAP "a_I"   :TO "a" "I" "_^"        ! :EX <ice>
+:MAP "e_I"   :TO "e" "I" "_^"        ! :EX <day>
+:MAP "o_U"   :TO "o" "U" "_^"        ! :EX <boat>
+
+! other symbols
+
+:MAP '"'     :TO '"'                 ! primary stress
+:MAP "%"     :TO "%"                 ! secondary stress
+

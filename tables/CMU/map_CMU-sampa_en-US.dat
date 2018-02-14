@@ -1,0 +1,104 @@
+! Licensed under the Apache License, Version 2.0 (the "License");
+! you may not use this file except in compliance with the License.
+! You may obtain a copy of the License at
+!
+!     http://www.apache.org/licenses/LICENSE-2.0
+!
+! Unless required by applicable law or agreed to in writing, software
+! distributed under the License is distributed on an "AS IS" BASIS,
+! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+! See the License for the specific language governing permissions and
+! limitations under the License.
+!
+! Copyright 2014 Yandex LLC
+! All Rights Reserved.
+!
+! Author : Alexis Wilpert
+
+
+!---------------------------------------------------------------------
+! CMU en-US to X-SAMPA
+!
+! Defines mappings from CMU to X-SAMPA
+!
+! v1.0 - initial version
+! v1.1 - diphthongs and some vowels redefined
+!      - phones organized in phonetic classes
+
+
+:ALPHABET "x-CMU-sampa_en-US"
+
+
+
+!  CMU    |  X-SAMPA          | Notes
+!-----------+-----------------+---------------------------------------
+
+! CONSONANTS
+
+! plosives
+
+:MAP "b"     :TO "b"          ! bee           BCL B iy
+:MAP "d"     :TO "d"          ! day           DCL D ey
+:MAP "g"     :TO "g"          ! gay           GCL G ey
+:MAP "k"     :TO "k"          ! key           KCL K iy
+:MAP "p"     :TO "p"          ! pea           PCL P iy
+:MAP "t"     :TO "t"          ! tea           TCL T iy
+
+! fricatives
+
+:MAP "dh"    :TO "D"          ! then          DH e n
+:MAP "f"     :TO "f"          ! fin           F ih n
+:MAP "hh"    :TO "h"          ! hay           HH ey
+:MAP "s"     :TO "s"          ! sea           S iy
+:MAP "sh"    :TO "S"          ! she           SH iy
+:MAP "th"    :TO "T"          ! thin          TH ih n
+:MAP "v"     :TO "v"          ! van           V ae n
+:MAP "z"     :TO "z"          ! zone          Z ow n
+:MAP "zh"    :TO "Z"          ! azure         ae ZH er
+
+! affricates
+
+:MAP "ch"    :TO "t" "_" "S"  ! choke         TCL CH ow kcl k
+:MAP "jh"    :TO "d" "_" "Z"  ! joke          DCL JH ow kcl k
+
+! nasals
+
+:MAP "m"     :TO "m"          ! mom           M aa M
+:MAP "n"     :TO "n"          ! noon          N uw N
+:MAP "ng"    :TO "N"          ! sing          s ih NG
+
+! liquids
+
+:MAP "r"     :TO "r\"         ! ray           R ey
+:MAP "l"     :TO "l"          ! lay           L ey
+
+! approximants
+
+:MAP "w"     :TO "w"          ! way           W ey
+:MAP "y"     :TO "j"          ! yacht         Y aa tcl t
+
+! VOWELS
+
+:MAP "aa"    :TO "A"          ! bott          bcl b AA tcl t
+:MAP "ae"    :TO "{"          ! bat           bcl b AE tcl t
+:MAP "ah"    :TO "@"          ! but           bcl b AH tcl t
+:MAP "ao"    :TO "Q"          ! bought        bcl b AO tcl t
+:MAP "eh"    :TO "E"          ! bet           bcl b EH tcl t
+:MAP "er"    :TO "3" "`"      ! bird          bcl b ER dcl d
+:MAP "ih"    :TO "I"          ! bit           bcl b IH tcl t
+:MAP "iy"    :TO "i"          ! beet          bcl b IY tcl t
+:MAP "uh"    :TO "U"          ! book          bcl b UH kcl k
+:MAP "uw"    :TO "u"          ! boot          bcl b UW tcl t
+
+! DIPHTHONGS
+
+:MAP "aw"    :TO "a" "U" "_^" ! bout          bcl b AW tcl t
+:MAP "ay"    :TO "a" "I" "_^" ! bite          bcl b AY tcl t
+:MAP "ey"    :TO "e" "I" "_^" ! bait          bcl b EY tcl t
+:MAP "ow"    :TO "o" "U" "_^" ! boat          bcl b OW tcl t
+:MAP "oy"    :TO "O" "I" "_^" ! boy           bcl b OY
+
+! other symbols
+
+:MAP "1"     :TO '"'          ! primary stress marker
+:MAP "2"     :TO "%"          ! secondary stress marker

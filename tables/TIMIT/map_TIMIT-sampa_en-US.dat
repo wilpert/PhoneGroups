@@ -1,0 +1,93 @@
+! Licensed under the Apache License, Version 2.0 (the "License");
+! you may not use this file except in compliance with the License.
+! You may obtain a copy of the License at
+!
+!     http://www.apache.org/licenses/LICENSE-2.0
+!
+! Unless required by applicable law or agreed to in writing, software
+! distributed under the License is distributed on an "AS IS" BASIS,
+! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+! See the License for the specific language governing permissions and
+! limitations under the License.
+!
+! Copyright 2014 Yandex LLC
+! All Rights Reserved.
+!
+! Author : Alexis Wilpert
+
+
+!---------------------------------------------------------------------
+! TIMIT to X-SAMPA
+!
+! Defines mappings from TIMIT to X-SAMPA
+!
+
+:ALPHABET "x-TIMIT-sampa_en-US"
+
+
+!  TIMIT    |  X-SAMPA          | Notes
+!-----------+-------------------+---------------------------------------
+
+
+! phones not present in the 46 phoneme set
+
+:MAP "q"     :TO "?"            ! bat           bcl b ae Q
+:MAP "ax-h"  :TO "@" "_0"       ! suspect       s AX-H s pcl p eh kcl k tcl t
+:MAP "dx"    :TO "4"            ! muddy         m ah DX iy
+:MAP "hv"    :TO "h\"           ! ahead         ax HV eh dcl
+:MAP "nx"    :TO "4" "~"        ! winner        w ih NX axr
+:MAP "ux"    :TO "u" "_+"       ! toot          tcl t UX tcl t
+
+! phones additionally not present in the 39 phoneme set
+
+:MAP "ax"    :TO "@"            ! about         AX bcl b aw tcl t
+:MAP "axr"   :TO "@" "`"        ! butter        bcl b ah dx AXR
+:MAP "el"    :TO "l" "="        ! bottle        bcl b aa tcl t EL
+:MAP "em"    :TO "m" "="        ! bottom        b aa tcl t EM
+:MAP "en"    :TO "n" "="        ! button        b ah q EN
+:MAP "eng"   :TO "N" "="        ! washington    w aa sh ENG tcl t ax n
+:MAP "ix"    :TO "i"            ! debit         dcl d eh bcl b IX tcl t
+
+! phones common to all phoneme sets
+
+:MAP "aa"    :TO "A"            ! bott          bcl b AA tcl t
+:MAP "ae"    :TO "{"            ! bat           bcl b AE tcl t
+:MAP "ah"    :TO "V"            ! but           bcl b AH tcl t
+:MAP "ao"    :TO "O" ":"        ! bought        bcl b AO tcl t
+:MAP "aw"    :TO "a" "_" "U"    ! bout          bcl b AW tcl t
+:MAP "ay"    :TO "a" "_" "I"    ! bite          bcl b AY tcl t
+:MAP "b"     :TO "b"            ! bee           BCL B iy
+:MAP "ch"    :TO "t" "_" "S"    ! choke         TCL CH ow kcl k
+:MAP "d"     :TO "d"            ! day           DCL D ey
+:MAP "dh"    :TO "D"            ! then          DH e n
+:MAP "eh"    :TO "E"            ! bet           bcl b EH tcl t
+:MAP "er"    :TO "3" "`"        ! bird          bcl b ER dcl d
+:MAP "ey"    :TO "e" "_" "I"    ! bait          bcl b EY tcl t
+:MAP "f"     :TO "f"            ! fin           F ih n
+:MAP "g"     :TO "g"            ! gay           GCL G ey
+:MAP "hh"    :TO "h"            ! hay           HH ey
+:MAP "ih"    :TO "I"            ! bit           bcl b IH tcl t
+:MAP "iy"    :TO "i" ":"        ! beet          bcl b IY tcl t
+:MAP "jh"    :TO "d" "_" "Z"    ! joke          DCL JH ow kcl k
+:MAP "k"     :TO "k"            ! key           KCL K iy
+:MAP "l"     :TO "l"            ! lay           L ey
+:MAP "m"     :TO "m"            ! mom           M aa M
+:MAP "n"     :TO "n"            ! noon          N uw N
+:MAP "ng"    :TO "N"            ! sing          s ih NG
+:MAP "ow"    :TO "o" "_" "U"    ! boat          bcl b OW tcl t
+:MAP "oy"    :TO "o" "_" "I"    ! boy           bcl b OY
+:MAP "p"     :TO "p"            ! pea           PCL P iy
+:MAP "r"     :TO "r\"           ! ray           R ey
+:MAP "s"     :TO "s"            ! sea           S iy
+:MAP "sh"    :TO "S"            ! she           SH iy
+:MAP "t"     :TO "t"            ! tea           TCL T iy
+:MAP "th"    :TO "T"            ! thin          TH ih n
+:MAP "v"     :TO "v"            ! van           V ae n
+:MAP "w"     :TO "w"            ! way           W ey
+:MAP "y"     :TO "j"            ! yacht         Y aa tcl t
+:MAP "z"     :TO "z"            ! zone          Z ow n
+:MAP "uh"    :TO "U"            ! book          bcl b UH kcl k
+:MAP "uw"    :TO "u"            ! boot          bcl b UW tcl t
+:MAP "zh"    :TO "Z"            ! azure         ae ZH er
+:MAP "1"     :TO '"'            ! primary stress marker
+:MAP "2"     :TO "%"            ! secondary stress marker

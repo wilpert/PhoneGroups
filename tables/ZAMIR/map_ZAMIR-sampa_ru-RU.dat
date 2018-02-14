@@ -1,0 +1,102 @@
+! Licensed under the Apache License, Version 2.0 (the "License");
+! you may not use this file except in compliance with the License.
+! You may obtain a copy of the License at
+!
+!     http://www.apache.org/licenses/LICENSE-2.0
+!
+! Unless required by applicable law or agreed to in writing, software
+! distributed under the License is distributed on an "AS IS" BASIS,
+! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+! See the License for the specific language governing permissions and
+! limitations under the License.
+!
+! Copyright 2014 Yandex LLC
+! All Rights Reserved.
+!
+! Author : Alexis Wilpert
+
+
+!---------------------------------------------------------------------
+! ZAMIR sampa ru-RU to X-SAMPA
+!
+! v1.0 - initial version
+
+
+
+:ALPHABET "x-ZAMIR-sampa_ru-RU"
+
+
+!  ZAMIR    |  X-SAMPA          | Notes
+!-----------+-------------------+---------------------------------------
+
+! CONSONANTS
+
+:MAP "b"      :TO "b"
+:MAP "d"      :TO "d"
+:MAP "f"      :TO "f"
+:MAP "g"      :TO "g"
+:MAP "h"      :TO "x"
+:MAP "k"      :TO "k"
+:MAP "l"      :TO "l"
+:MAP "m"      :TO "m"
+:MAP "n"      :TO "n"
+:MAP "p"      :TO "p"
+:MAP "r"      :TO "r"
+:MAP "s"      :TO "s"
+:MAP "sh"     :TO "S"
+:MAP "t"      :TO "t"
+:MAP "v"      :TO "v"
+:MAP "z"      :TO "z"
+:MAP "zh"     :TO "Z"
+
+! palatalized
+
+:MAP "bb"     :TO "b" "'"
+:MAP "dd"     :TO "d" "'"
+:MAP "ff"     :TO "f" "'"
+:MAP "gg"     :TO "g" "'"
+:MAP "hh"     :TO "x" "'"
+:MAP "kk"     :TO "k" "'"
+:MAP "ll"     :TO "l" "'"
+:MAP "mm"     :TO "m" "'"
+:MAP "nn"     :TO "n" "'"
+:MAP "pp"     :TO "p" "'"
+:MAP "rr"     :TO "r" "'"
+:MAP "ss"     :TO "s" "'"
+:MAP "sch"    :TO "S" "'"
+:MAP "tt"     :TO "t" "'"
+:MAP "vv"     :TO "v" "'"
+:MAP "zz"     :TO "z" "'"
+
+! affricates
+
+:MAP "c"      :TO "t" "_" "s"
+:MAP "ch"     :TO "t" "_" "S" "'"
+
+! approximant
+
+:MAP "j"      :TO "j"
+
+! VOWELS
+
+! stressed
+
+:MAP "aa"     :TO "A"
+:MAP "yy"     :TO "1"
+:MAP "oo"     :TO "o"
+:MAP "uu"     :TO "u"
+:MAP "ee"     :TO "E"
+:MAP "jo"     :TO "9"
+:MAP "je"     :TO "e"
+:MAP "ja"     :TO "{"
+:MAP "ju"     :TO "}"
+:MAP "ii"     :TO "i"
+
+! unstressed
+
+:MAP "a"      :TO "V"
+:MAP "ay"     :TO "@"
+:MAP "u"      :TO "U"
+:MAP "uj"     :TO "Y"
+:MAP "y"      :TO "@\"
+:MAP "i"      :TO "I"

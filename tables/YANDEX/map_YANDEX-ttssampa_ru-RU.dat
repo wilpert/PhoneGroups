@@ -1,0 +1,248 @@
+! Licensed under the Apache License, Version 2.0 (the "License");
+! you may not use this file except in compliance with the License.
+! You may obtain a copy of the License at
+!
+!     http://www.apache.org/licenses/LICENSE-2.0
+!
+! Unless required by applicable law or agreed to in writing, software
+! distributed under the License is distributed on an "AS IS" BASIS,
+! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+! See the License for the specific language governing permissions and
+! limitations under the License.
+!
+! Copyright 2014 Yandex LLC
+! All Rights Reserved.
+!
+! Author : Alexis Wilpert
+
+
+!-----------------------------------------------------------------------------------------------------------------------
+! YANDEX sampa ru-RU to X-SAMPA (version tuned for TTS)
+!
+! version 8. Changes:
+!   + adapted formally to be processed by the phone groups generation software
+!   + minor typos corrected
+!
+! version 7. Changes:
+!   + final version (no additional changes)
+!
+! version 6. Changes:
+!   + C_j --> CJ
+!   + review and correction of transcription examples
+!
+! version 5. Changes:
+!   + changed the transcription for the adjective inflections <ой> : <ый> and <ое> : <ая>. The reason
+!     is to be able to differentiate within the inflection pairs. A new symbol is needed ([@_r_i]).
+!
+! version 4. Changes:
+!   + drastic reduction of geminate symbols based on frequency analysis.
+!   + description of transcription of adjective inflections and proposal of 4 new symbols.
+!   + the new phoneme set (including the 4 new symbols proposed) contains 76 symbols.
+!
+! version 3. Changes:
+!   + added new allophones [ZJ] (for voiced [SJ]) and [d_ZJ] (for voiced [t_SJ])
+!
+! version 2. Changes:
+!   + some characters in the symbols mapped to other symbols that will not cause processing problems:
+!     - C'  --> C_j
+!     - 1   --> i_x
+!     - 6   --> @_o
+!     - @\  --> @_r
+!     - U_" --> U_x
+
+:ALPHABET "x-YANDEX-ttssampa_ru-RU"
+
+! CONSONANTS
+! ==========
+
+! YANDEX     X-SAMPA              transcription                  context      example
+! -------------------------------------------------------------------------------------
+:MAP "p"     :TO "p"              p o l                          LEX          пол
+:MAP "pJ"    :TO "p" "'"          pJ a tJ                        LEX          пять
+:MAP "b"     :TO "b"              b u r                          LEX          бур
+:MAP "bJ"    :TO "b" "'"          bJ i t                         LEX          бит
+:MAP "t"     :TO "t"              t o m                          LEX          том
+:MAP "tJ"    :TO "t" "'"          tJ i r                         LEX          тир
+:MAP "d"     :TO "d"              d o m                          LEX          дом
+:MAP "dJ"    :TO "d" "'"          dJ a dJ @                      LEX          дядя
+:MAP "k"     :TO "k"              k o t                          LEX          кот
+:MAP "kJ"    :TO "k" "'"          kJ i t                         LEX          кит
+:MAP "g"     :TO "g"              g u S                          LEX          гуж
+:MAP "gJ"    :TO "g" "'"          gJ i t                         LEX          гид
+:MAP "m"     :TO "m"              m u l                          LEX          мул
+:MAP "mJ"    :TO "m" "'"          mJ a l                         LEX          мял
+:MAP "n"     :TO "n"              n o s                          LEX          нос
+:MAP "nJ"    :TO "n" "'"          nJ i s                         LEX          низ
+:MAP "l"     :TO "l"              l a s                          LEX          лаз
+:MAP "lJ"    :TO "l" "'"          lJ e s                         LEX          лес
+:MAP "r"     :TO "r"              r a k                          LEX          рак
+:MAP "rJ"    :TO "r" "'"          rJ i m                         LEX          Рим
+:MAP "f"     :TO "f"              f o n                          LEX          фон
+:MAP "fJ"    :TO "f" "'"          fJ e n                         LEX          фен
+:MAP "v"     :TO "v"              v o r                          LEX          вор
+:MAP "vJ"    :TO "v" "'"          vJ i n t                       LEX          винт
+:MAP "s"     :TO "s"              s o n                          LEX          сон
+:MAP "sJ"    :TO "s" "'"          sJ i l @                       LEX          сила
+:MAP "z"     :TO "z"              z u p                          LEX          зуб
+:MAP "zJ"    :TO "z" "'"          zJ I m a                       LEX          зима
+:MAP "Z"     :TO "Z"              Z a r                          LEX          жар
+:MAP "S"     :TO "S"              S a r                          LEX          шар
+:MAP "SJ"    :TO "S" "'"          SJ i t                         LEX          щит
+:MAP "ZJ"    :TO "Z" "'"          t @_o v a rJ I ZJ b i_x l      LEX          товарищ # был
+:MAP "x"     :TO "x"              x o r                          LEX          хор
+:MAP "xJ"    :TO "x" "'"          xJ I mJ e r @                  LEX          химера
+:MAP "t_s"   :TO "t" "_" "s"      t_s a rJ                       LEX          царь
+:MAP "t_SJ"  :TO "t" "_" "S" "'"  t_SJ a n                       LEX          чан
+:MAP "d_ZJ"  :TO "d" "_" "Z" "'"  n @_o d_ZJ dJ i f              LEX          начдив
+:MAP "j"     :TO "j"              j a m @                        LEX          яма
+:MAP "d_Z"   :TO "d" "_" "Z"      d_Z e m                        LEX          джем
+:MAP "d_z"   :TO "d" "_" "z"      s pJ e d_z @_o k a z           LEX          спецзаказ
+
+! GEMINATES
+! ---------
+
+! YANDEX     X-SAMPA              transcription                  context      example
+! -------------------------------------------------------------------------------------
+:MAP "t_t"   :TO "t" ":"          @_o t_t o k                    LEX          отток
+:MAP "t_tJ"  :TO "t" "'" ":"      p @_o t_tJ e m @               LEX          подтема
+:MAP "d_d"   :TO "d" ":"          @_o d_d a m                    LEX          отдам
+:MAP "d_dJ"  :TO "d" "'" ":"      @_o d_dJ e l                   LEX          отдел
+:MAP "s_s"   :TO "s" ":"          r @_o s_s a d @                LEX          рассада
+:MAP "s_sJ"  :TO "s" "'" ":"      r a s_sJ e l I n @             LEX          расселина
+:MAP "n_n"   :TO "n" ":"          v a n_n @                      LEX          ванна
+:MAP "n_nJ"  :TO "n" "'" ":"      v a n_nJ @                     LEX          ванне
+:MAP "l_l"   :TO "l" ":"          vJ i l_l @                     LEX          вилла
+:MAP "l_lJ"  :TO "l" "'" ":"      vJ i l_lJ @                    LEX          Вилли
+
+! There are three types of [r] in Russian and they cannot be described in terms of only right or only left contexts:
+!
+! 1. Between two consonants (C_C) r-spectrum looks like [vocal area - break - vocal] area
+! 2. Between a consonant and before a vowel (C_V) it is [vocal - break]
+! 3. In V_C context r-sound is [break - vocal]
+! 4. Between two vowels r-sound is only [break]
+
+
+
+! VOWELS
+! ======
+
+
+! STRESSED VOWELS
+! ---------------
+
+! I keep both [i] and [i_x], as [i] is not [i_x] with a i-like presound:
+
+! YANDEX           X-SAMPA     transcription   context   example
+! ----------------------------------------------------------------
+:MAP "i"           :TO "i"     i r @           LEX       Ира
+:MAP "i_x"         :TO "1"     d i_x r k @     LEX       дырка
+:MAP "e"           :TO "e"     tJ e l @        LEX       тело
+:MAP "a"           :TO "a"     b a n k         LEX       банк
+:MAP "u"           :TO "u"     d u x           LEX       дух
+:MAP "o"           :TO "o"     d o m           LEX       дом
+
+! PHONEME |  ORTHOGRAPHIC CONTEXT                 | PHONETIC CONTEXT
+! --------+---------------------------------------+------------------------
+! [i]     ! <и>                                   ! ST && ( SC _ || ## _ )
+! [i_x]   ! <ы> || ( <и> / <ж,ш,ц> _ )            ! ST && HC _
+! [e]     ! <е, э>                                ! ST
+! [a]     ! <а,я>                                 ! ST
+! [o]     ! <o,е,ё>                               ! ST || ¬ST / W = foreign
+! [u]     ! <у,ю>                                 ! ST
+
+
+! UNSTRESSED VOWELS
+! -----------------
+
+! 1st degree of reduction
+! -----------------------
+
+! YANDEX        X-SAMPA     transcription       context   example
+! -----------------------------------------------------------------
+:MAP "@_o"      :TO "6"     k @_o r o v @       LEX       корова
+:MAP "E"        :TO "E"     E p o x @           LEX       эпоха
+:MAP "@_r"      :TO "@\"    l u Z @_r           LEX       лужи
+:MAP "I"        :TO "I"     tJ I p a S          LEX       типаж
+:MAP "U"        :TO "U"     b r U s o k         LEX       брусок
+
+! PHONEME |  ORTHOGRAPHIC CONTEXT                                          | PHONETIC CONTEXT
+! --------+----------------------------------------------------------------+----------------------------------------------------------------------
+! [E]     ! <э>                                                            ! ¬ST && (## _ || V _ )
+! [I]     ! <и,е,э> || ( <я> / _ ST ) || ( <а> / ( _ ST && <ч,щ> _ ) )     ! ¬ST && (ST-1 || V _ || _ ## || ## _ ) && ( SC _ || SC # _ )
+! [@_r]   ! <ы> || <э> / (¬# _ || ¬## _ || V ¬_ ) || ( <и,е> / <ж,ш,ц> _ ) ! ¬ST && ( HC _ || HC # _ )
+! [@_o]   ! <а,о>                                                          ! ¬ST && SC ¬_ && ( ST-1 || # _ || _ ## || ( _ V || V _ ) / V = <а,о> )
+! [U]     ! <у,ю>                                                          ! ¬ST && (ST-1 || V _ || _ ## || ## _ )
+
+
+! 2nd degree of reduction
+! -----------------------
+
+! YANDEX        X-SAMPA       transcription            context   example
+! ------------------------------------------------------------------------
+:MAP "@"        :TO "@"       k @_o r o v @            LEX       корова
+:MAP "U_x"      :TO "U" '_"'  b U_x d @_o pJ e S t     LEX       Будапешт
+
+! Position is in unstressed syllables, not in pretonic ones, not after vowels and not at the absosolute beginning or at the absolute end of the word:
+
+! PHONEME |  ORTHOGRAPHIC CONTEXT                                      | PHONETIC CONTEXT
+! --------+------------------------------------------------------------+-----------------------------------------
+! [@]     ! <а, я, о, е, ы, и> / ¬ (ST-1 || ## _ || _ ## || V _ )      ! ¬ST && ¬ ( ST-1 || ## _ || _ ## || V _ )
+! [U_x]   ! <у,ю> / ¬ ( ST-1 || ## _ || _ ## || V _ )                  ! ¬ST && ¬ ( ST-1 || ## _ || _ ## || V _ )
+
+
+
+
+! DIPHTHONGS
+! ==========
+
+! I kept the system you used for analysis, excepting [{_i] as we agreed not to distinguish between "palatalized" variants of vowels and those after hard consonants stressed:
+
+
+! STRESSED DIPHTHONGS
+! -------------------
+
+! YANDEX        X-SAMPA           transcription                   context   example
+! --------------------------------------------------------------------------------------
+:MAP "i_i"      :TO "i" "I" "_^"  @_o lJ I m pJ i_i s k @_i @     LEX       олимпийская
+:MAP "e_i"      :TO "e" "I" "_^"  j I nJ I sJ e_i s k @_i @       LEX       енисейская
+:MAP "a_i"      :TO "a" "I" "_^"  I z m a_i l @ f s kJ I_i        LEX       измайловский
+:MAP "o_i"      :TO "o" "I" "_^"  n @_o t_SJ n o_i                LEX       ночной
+:MAP "u_i"      :TO "u" "I" "_^"  k u_i b @_r S @_r v @           LEX       куйбышева
+
+
+! UNSTRESSED DIPHTHONGS
+! ---------------------
+
+! YANDEX        X-SAMPA           transcription                 context   example
+! -----------------------------------------------------------------------------------
+:MAP "I_i"      :TO "I" "I" "_^"  t_SJ I_i k o f s k @ v @      LEX       чайковского
+:MAP "@_o_i"    :TO "6" "I" "_^"  b @_o_i k a lJ s k @_i @      LEX       байкальская
+:MAP "@_i"      :TO "@" "I" "_^"  r @_o s k o v @_i             LEX       расковой
+:MAP "U_i"      :TO "U" "I" "_^"  t_SJ U_i k o v @              LEX       чуйкова
+
+
+! SPECIAL DIPHTHONG
+! -----------------
+
+! YANDEX        X-SAMPA
+! -------------------------------
+:MAP "@_r_i"    :TO "@\" "I" "_^"
+
+! The following is only a guideline, no specification
+
+! TRANSCRIPTION OF ADJECTIVE INFLECTIONS
+! ======================================
+
+! ORTHO   STRESSED    UNSTRESSED
+! ------------------------------
+! <ой>    [o_i]       [@_i]
+! <ый>                [@_r_i]
+! <ий>                [I_i]
+! <ое>    [o E]       [@_i I]
+! <ее>    [e E]       [I_i @]
+! <ая>    [a_i @]     [@_i @]
+! <ей>                [I_i]
+! <oю>    [o_i U_x]   [@_i U_x]
+! <eю>                [I_i U_x]
+! <ые>    [i_x I]     [@ I]
+! <ие>    [i I]       [I I]

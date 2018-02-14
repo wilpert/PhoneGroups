@@ -1,0 +1,189 @@
+! Licensed under the Apache License, Version 2.0 (the "License");
+! you may not use this file except in compliance with the License.
+! You may obtain a copy of the License at
+!
+!     http://www.apache.org/licenses/LICENSE-2.0
+!
+! Unless required by applicable law or agreed to in writing, software
+! distributed under the License is distributed on an "AS IS" BASIS,
+! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+! See the License for the specific language governing permissions and
+! limitations under the License.
+!
+! Copyright 2014 Yandex LLC
+! All Rights Reserved.
+!
+! Author : Alexis Wilpert
+!
+!
+! Complete X-SAMPA alphabet with property definitions
+
+
+
+! consonants, type = 0
+
+:SYM "p"   :PROP type=0, place=0,  manner=2,  property=3 ! voiceless bilabial plosive
+:SYM "b"   :PROP type=0, place=0,  manner=2,  property=2 ! voiced bilabial plosive
+:SYM "t"   :PROP type=0, place=4,  manner=2,  property=3 ! voiceless alveolar plosive
+:SYM "d"   :PROP type=0, place=4,  manner=2,  property=2 ! voiced alveolar plosive
+:SYM "c"   :PROP type=0, place=9,  manner=2,  property=3 ! voiceless palatal plosive
+:SYM "k"   :PROP type=0, place=11, manner=2,  property=3 ! voiceless velar plosive
+:SYM "g"   :PROP type=0, place=11, manner=2,  property=2 ! voiced velar plosive
+:SYM "q"   :PROP type=0, place=12, manner=2,  property=3 ! voiceless uvular plosive
+:SYM "?"   :PROP type=0, place=15, manner=2,  property=3 ! voiced glottal plosive
+:SYM ">\"  :PROP type=0, place=14, manner=2,  property=3 ! epiglottal plosive
+:SYM "t`"  :PROP type=0, place=8,  manner=2,  property=3 ! voiceless retroflex plosive
+:SYM "d`"  :PROP type=0, place=8,  manner=2,  property=2 ! voiced retroflex plosive
+
+:SYM "m"   :PROP type=0, place=0,  manner=7,  property=2 ! voiced bilabial nasal
+:SYM "n"   :PROP type=0, place=4,  manner=7,  property=2 ! voiced alveolar nasal
+:SYM "F"   :PROP type=0, place=2,  manner=7,  property=2 ! labiodental nasal
+:SYM "n`"  :PROP type=0, place=8,  manner=7,  property=2 ! retroflex nasal
+:SYM "J"   :PROP type=0, place=9,  manner=7,  property=2 ! palatal nasal
+:SYM "N"   :PROP type=0, place=11, manner=7,  property=2 ! velar nasal
+:SYM "N\"  :PROP type=0, place=12, manner=7,  property=2 ! uvular nasal
+
+:SYM "r"   :PROP type=0, place=4,  manner=10, property=2 ! voiced alveolar trill
+:SYM "B\"  :PROP type=0, place=0,  manner=10, property=2 ! bilabial trill
+:SYM "R\"  :PROP type=0, place=12, manner=10, property=2 ! uvular trill
+
+:SYM "4"   :PROP type=0, place=4,  manner=8,  property=2 ! alveolar tap
+:SYM "r`"  :PROP type=0, place=8,  manner=8,  property=2 ! retroflex flap
+
+:SYM "f"   :PROP type=0, place=2,  manner=5,  property=3 ! voiceless labiodental fricative
+:SYM "v"   :PROP type=0, place=2,  manner=5,  property=2 ! voiced labiodental fricative
+:SYM "s"   :PROP type=0, place=4,  manner=5,  property=3 ! voiceless alveolar fricative
+:SYM "z"   :PROP type=0, place=4,  manner=5,  property=2 ! voiced alveolar fricative
+:SYM "x"   :PROP type=0, place=11, manner=5,  property=3 ! voiceless velar fricative
+:SYM "h"   :PROP type=0, place=15, manner=5,  property=3 ! voiceless glottal fricative
+:SYM "K"   :PROP type=0, place=4,  manner=5,  property=3 ! voiceless alveolar lateral fricative
+:SYM "K\"  :PROP type=0, place=4,  manner=5,  property=2 ! voiced alveolar lateral fricative
+:SYM "W"   :PROP type=0, place=1,  manner=5,  property=3 ! voiceless labial-velar fricative
+:SYM "H\"  :PROP type=0, place=14, manner=5,  property=3 ! voiceless epiglottal fricative
+:SYM "<\"  :PROP type=0, place=14, manner=5,  property=2 ! voiced epiglottal fricative
+:SYM "s\"  :PROP type=0, place=7,  manner=5,  property=3 ! voiceless alveolo-palatal fricative
+:SYM "z\"  :PROP type=0, place=7,  manner=5,  property=2 ! voiced alveolo-palatal fricative
+:SYM "x\"  :PROP type=0, place=16, manner=5,  property=3 ! postalveolar-velar fricative
+:SYM "p\"  :PROP type=0, place=0,  manner=5,  property=3 ! voiceless bilabial fricative
+:SYM "B"   :PROP type=0, place=0,  manner=5,  property=2 ! voiced bilabial fricative
+:SYM "T"   :PROP type=0, place=3,  manner=5,  property=3 ! voiceless dental fricative
+:SYM "D"   :PROP type=0, place=3,  manner=5,  property=2 ! voiced dental fricative
+:SYM "S"   :PROP type=0, place=5,  manner=5,  property=3 ! voiceless postalveolar fricative
+:SYM "Z"   :PROP type=0, place=5,  manner=5,  property=2 ! voiced postalveolar fricative
+:SYM "s`"  :PROP type=0, place=8,  manner=5,  property=3 ! voiceless retroflex fricative
+:SYM "z`"  :PROP type=0, place=8,  manner=5,  property=2 ! voiced retroflex fricative
+:SYM "C"   :PROP type=0, place=9,  manner=5,  property=3 ! voiceless palatal fricative
+:SYM "j\"  :PROP type=0, place=9,  manner=5,  property=2 ! voiced palatal fricative
+:SYM "G"   :PROP type=0, place=11, manner=5,  property=2 ! voiced velar fricative
+:SYM "X"   :PROP type=0, place=12, manner=5,  property=3 ! voiceless uvular fricative
+:SYM "R"   :PROP type=0, place=12, manner=5,  property=2 ! voiced uvular fricative
+:SYM "X\"  :PROP type=0, place=13, manner=5,  property=3 ! voiceless pharyngeal fricative
+:SYM "?\"  :PROP type=0, place=13, manner=5,  property=2 ! voiced pharyngeal fricative
+:SYM "h\"  :PROP type=0, place=15, manner=5,  property=2 ! voiced glottal fricative
+
+:SYM "j"   :PROP type=0, place=9,  manner=11, property=2 ! voiced palatal approximant
+:SYM "w"   :PROP type=0, place=1,  manner=11, property=2 ! voiced labial-velar approximant
+:SYM "P"   :PROP type=0, place=2,  manner=11, property=2 ! labiodental approximant
+:SYM "r\"  :PROP type=0, place=4,  manner=11, property=2 ! alveolar approximant
+:SYM "r\`" :PROP type=0, place=8,  manner=11, property=2 ! retroflex approximant
+:SYM "M\"  :PROP type=0, place=11, manner=11, property=2 ! velar approximant
+:SYM "H"   :PROP type=0, place=10, manner=11, property=2 ! voiced labial-palatal approximant
+:SYM "l`"  :PROP type=0, place=8,  manner=12, property=2 ! retroflex lateral-approximant
+:SYM "L"   :PROP type=0, place=9,  manner=12, property=2 ! palatal lateral-approximant
+:SYM "L\"  :PROP type=0, place=11, manner=12, property=2 ! velar lateral-approximant
+
+:SYM "l"   :PROP type=0, place=4,  manner=12, property=2 ! voiced alveolar lateral-approximant
+
+:SYM "l\"  :PROP type=0, place=4,  manner=9,  property=2 ! alveolar lateral-flap
+
+! vowels, type = 1
+
+:SYM "i"  :PROP type=1, height=6, backness=0          ! close front unrounded
+:SYM "y"  :PROP type=1, height=6, backness=0, mode=0  ! close front rounded
+:SYM "M"  :PROP type=1, height=6, backness=4          ! close back unrounded
+:SYM "u"  :PROP type=1, height=6, backness=4, mode=0  ! close back rounded
+:SYM "1"  :PROP type=1, height=6, backness=2          ! close central unrounded
+:SYM "}"  :PROP type=1, height=6, backness=2, mode=0  ! close central rounded
+:SYM "I"  :PROP type=1, height=5, backness=1          ! near-close near-front unrounded
+:SYM "Y"  :PROP type=1, height=5, backness=1, mode=0  ! near-close near-front rounded
+:SYM "e"  :PROP type=1, height=4, backness=0          ! close-mid front unrounded
+:SYM "2"  :PROP type=1, height=4, backness=0, mode=0  ! close-mid front rounded
+:SYM "@\" :PROP type=1, height=4, backness=2          ! close-mid central unrounded
+:SYM "8"  :PROP type=1, height=4, backness=2, mode=0  ! close-mid central rounded
+:SYM "7"  :PROP type=1, height=4, backness=4          ! close-mid back unrounded
+:SYM "o"  :PROP type=1, height=4, backness=4, mode=0  ! close-mid back rounded
+:SYM "E"  :PROP type=1, height=2, backness=0          ! open-mid front unrounded
+:SYM "9"  :PROP type=1, height=2, backness=0, mode=0  ! open-mid front rounded
+:SYM "3"  :PROP type=1, height=2, backness=2          ! open-mid central unrounded
+:SYM "3\" :PROP type=1, height=2, backness=2, mode=0  ! open-mid central rounded
+:SYM "V"  :PROP type=1, height=2, backness=4          ! open-mid back unrounded
+:SYM "O"  :PROP type=1, height=2, backness=4, mode=0  ! open-mid back rounded
+:SYM "a"  :PROP type=1, height=0, backness=0          ! open front unrounded
+:SYM "&"  :PROP type=1, height=0, backness=0, mode=0  ! open front rounded
+:SYM "A"  :PROP type=1, height=0, backness=4          ! open back unrounded
+:SYM "Q"  :PROP type=1, height=0, backness=4, mode=0  ! open back rounded
+:SYM "U"  :PROP type=1, height=5, backness=3, mode=0  ! near-close near-back rounded
+:SYM "{"  :PROP type=1, height=1, backness=0          ! near-open front unrounded
+:SYM "@"  :PROP type=1, height=3, backness=2          ! mid central (schwa)
+:SYM "6"  :PROP type=1, height=1, backness=2          ! near-open central (open schwa)
+
+! supra-segmentals, type = 2
+
+:SYM '"'    :PROP type=2, id=0  ! primary-stress
+:SYM "%"    :PROP type=2, id=1  ! secondary-stress
+:SYM ":\"   :PROP type=2, id=2  ! half-long
+:SYM "_X"   :PROP type=2, id=3  ! extra-short
+:SYM "."    :PROP type=2, id=4  ! syllable-break
+:SYM "|"    :PROP type=2, id=5  ! minor-group
+:SYM "||"   :PROP type=2, id=6  ! major group
+:SYM "-\"   :PROP type=2, id=7  ! linking
+:SYM "_"    :PROP type=2, id=8  ! affricate-or-double-articulation
+:SYM "<R>"  :PROP type=2, id=9  ! global-rise
+:SYM "<F>"  :PROP type=2, id=10 ! global-fall
+:SYM "_T"   :PROP type=2, id=11 ! extra-high-level
+:SYM "_H"   :PROP type=2, id=12 ! high-level
+:SYM "_M"   :PROP type=2, id=13 ! mid-level
+:SYM "_L"   :PROP type=2, id=14 ! low-level
+:SYM "_B"   :PROP type=2, id=15 ! extra-low-level
+:SYM "!"    :PROP type=2, id=16 ! downstep
+:SYM "^"    :PROP type=2, id=17 ! upstep
+:SYM "_R"   :PROP type=2, id=18 ! rising-contour
+:SYM "_F"   :PROP type=2, id=19 ! falling-contour
+:SYM "#"    :PROP type=2, id=20 ! word-boundary
+
+! diacritics
+
+:SYM "_O"  :PROP type=3, mode=0  ! rounded (=29, more rounded)
+:SYM ":"   :PROP type=3, mode=1  ! long
+:SYM "_v"  :PROP type=3, mode=2  ! voiced
+:SYM "_0"  :PROP type=3, mode=3  ! voiceless
+:SYM "_t"  :PROP type=3, mode=4  ! breathy-voice
+:SYM "_k"  :PROP type=3, mode=5  ! creaky-voice
+:SYM "="   :PROP type=3, mode=6  ! syllabic
+:SYM "_^"  :PROP type=3, mode=7  ! non-syllabic
+:SYM "_h"  :PROP type=3, mode=8  ! aspirated
+:SYM "_n"  :PROP type=3, mode=9  ! nasal-release
+:SYM "_l"  :PROP type=3, mode=10 ! lateral-release
+:SYM "_}"  :PROP type=3, mode=11 ! no-audible-release
+:SYM "_d"  :PROP type=3, mode=12 ! dental
+:SYM "_a"  :PROP type=3, mode=13 ! apical
+:SYM "_m"  :PROP type=3, mode=14 ! laminal
+:SYM "_N"  :PROP type=3, mode=15 ! linguolabial
+:SYM "_+"  :PROP type=3, mode=16 ! advanced
+:SYM "_-"  :PROP type=3, mode=17 ! retracted
+:SYM '_"'  :PROP type=3, mode=18 ! centralized
+:SYM "_x"  :PROP type=3, mode=19 ! mid-centralized
+:SYM "_r"  :PROP type=3, mode=20 ! raised
+:SYM "_o"  :PROP type=3, mode=21 ! lowered
+:SYM "~"   :PROP type=3, mode=22 ! nasalized
+:SYM "`"   :PROP type=3, mode=23 ! rhotacized
+:SYM "_w"  :PROP type=3, mode=24 ! labialized
+:SYM "'"   :PROP type=3, mode=25 ! palatalized
+:SYM "_G"  :PROP type=3, mode=26 ! velarized
+:SYM "_?\" :PROP type=3, mode=27 ! pharyngealized
+:SYM "_e"  :PROP type=3, mode=28 ! velarized-or-pharyngealized
+:SYM "_O"  :PROP type=3, mode=29 ! more-rounded
+:SYM "_c"  :PROP type=3, mode=30 ! less-rounded
+:SYM "_>"  :PROP type=3, mode=31 ! ejective
+:SYM "_A"  :PROP type=3, mode=32 ! advanced-tongue-root
+:SYM "_q"  :PROP type=3, mode=33 ! retracted-tongue-root
