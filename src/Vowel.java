@@ -21,13 +21,13 @@ import java.util.*;
 
 public class Vowel extends Xsampa {
 
-    private String height = null;
-    private String backness = null;
-    private SortedSet<String> mode = new TreeSet<String>();
+    private final String height;
+    private final String backness;
+    private final SortedSet<String> mode = new TreeSet<>();
 
-    private static final Map<Integer, String> heightValues = new TreeMap<Integer, String>();
-    private static final Map<Integer, String> backnessValues = new TreeMap<Integer, String>();
-    private static final Map<Integer, String> modeValues = new TreeMap<Integer, String>();
+    private static final Map<Integer, String> heightValues = new TreeMap<>();
+    private static final Map<Integer, String> backnessValues = new TreeMap<>();
+    private static final Map<Integer, String> modeValues = new TreeMap<>();
 
     static {
         heightValues.put(0, "open");
@@ -80,21 +80,19 @@ public class Vowel extends Xsampa {
     }
 
     public SortedSet<String> getMode() {
-        SortedSet<String> mode = new TreeSet<String>();
-        if (this.mode != null) {
+        SortedSet<String> mode = new TreeSet<>();
+        if (!this.mode.isEmpty()) {
             mode = this.mode;
         }
         return mode;
     }
 
     public List<String> getProperties() {
-        List<String> properties = new ArrayList<String>();
+        List<String> properties = new ArrayList<>();
         properties.add(getHeight());
         properties.add(getBackness());
-        if (mode != null) {
-            for (String mode : getMode()) {
-                properties.add(mode);
-            }
+        if (!mode.isEmpty()) {
+            properties.addAll(getMode());
         }
         return properties;
     }
@@ -104,18 +102,10 @@ public class Vowel extends Xsampa {
     }
 
     public static List<String> getHeightValues() {
-        List<String> heightValues = new ArrayList<String>();
-        for (String value : Vowel.heightValues.values()) {
-            heightValues.add(value);
-        }
-        return heightValues;
+        return new ArrayList<>(Vowel.heightValues.values());
     }
 
     public static List<String> getBacknessValues() {
-        List<String> backnessValues = new ArrayList<String>();
-        for (String value : Vowel.backnessValues.values()) {
-            backnessValues.add(value);
-        }
-        return backnessValues;
+        return new ArrayList<>(Vowel.backnessValues.values());
     }
 }

@@ -28,15 +28,15 @@ public class PhoneGroups {
     private static String sourceFilesDir = "";
     private static Boolean doPhoneset = false;
     private static Character featureSepChar = '^';
-    private static List<String> excludeList = new ArrayList<String>();
+    private static final List<String> excludeList = new ArrayList<>();
     private static Integer setMinNum = 2;
     private static Boolean keepSingletons = false;
     private static Boolean outputRepeatedGroups = false;
-    private static List<String> languages = new ArrayList<String>();
-    private static List<List<String>> combinedGroups = new ArrayList<List<String>>();
-    private static Sampa sampaMappings = new Sampa();
+    private static final List<String> languages = new ArrayList<>();
+    private static final List<List<String>> combinedGroups = new ArrayList<>();
+    private static final Sampa sampaMappings = new Sampa();
     static XsampaSymbols xsampaSymbols = new XsampaSymbols();
-    private static SortedMap<String, SortedSet<String>> groups = new TreeMap<String, SortedSet<String>>();
+    private static SortedMap<String, SortedSet<String>> groups = new TreeMap<>();
 
     public static void main(String[] args) throws IOException {
 
@@ -59,7 +59,7 @@ public class PhoneGroups {
     }
 
     private static void printGroups(String language) throws IOException {
-        groups = new TreeMap<String, SortedSet<String>>();
+        groups = new TreeMap<>();
         String outFile = "phonegroups_" + alphabet + "_" + language + ".txt";
         BufferedWriter out = AuxiliaryFunctions.openWrite(outFile);
 
@@ -104,10 +104,10 @@ public class PhoneGroups {
         // 2. configuration-specific
         for (List<String> c : combinedGroups) {
             if (c.size() <= 3) {
-                String[] combinedGroup = c.toArray(new String[c.size()]);
+                String[] combinedGroup = c.toArray(new String[0]);
                 putCompoundGroup(language, combinedGroup);
             } else {
-                System.err.println("Only combinations upto 3 features supported: " + c.toString());
+                System.err.println("Only combinations upto 3 features supported: " + c);
                 System.exit(1);
             }
         }
@@ -124,7 +124,7 @@ public class PhoneGroups {
                 if (featureStr.endsWith("_*")) {
                     featureStr = feature.substring(0, feature.length() - 2) + "*";
                 }
-                out.write(featureStr + "\t" + group.toString() + "\n");
+                out.write(featureStr + "\t" + group + "\n");
             }
         }
         out.close();
@@ -143,23 +143,19 @@ public class PhoneGroups {
                 features.remove("consonant");
             }
             features.remove("affricate-or-double-articulation");
-            String spaces = "";
-            for (int i = 0; i < (10 - sampa.length()); i++) {
-                spaces += " ";
-            }
-            phoneset.write(sampa + spaces + features.toString() + "\n");
+            phoneset.write(sampa + " ".repeat(Math.max(0, (10 - sampa.length()))) + features + "\n");
         }
         phoneset.close();
     }
 
     private static void putCompoundGroup(String language, String... features) {
-        String chain = "";
+        StringBuilder chain = new StringBuilder();
         for (String feature : features)
-            chain += feature + featureSepChar;
-        chain = chain.substring(0, chain.length() - 1); // remove trailing "^"
+            chain.append(feature).append(featureSepChar);
+        chain = new StringBuilder(chain.substring(0, chain.length() - 1)); // remove trailing "^"
         Map<String, SortedSet<String>> sampaSymbols = sampaMappings.getSymbolsWithFeatures(language, features);
         for (String side : sampaSymbols.keySet()) {
-            Boolean repeatedGroup = false;
+            boolean repeatedGroup = false;
             String repeatedSign = "";
             SortedSet<String> symbols = sampaSymbols.get(side);
             if (!symbols.isEmpty()) {
@@ -193,7 +189,7 @@ public class PhoneGroups {
             }
             setting = AuxiliaryFunctions.match("^\\s*GROUP\\s*=\\s*\"([^\"]+)\"", line);
             if (setting.find()) {
-                List<String> combinedGroup = new ArrayList<String>();
+                List<String> combinedGroup = new ArrayList<>();
                 for (String group : setting.group(1).split(",")) {
                     combinedGroup.add(group.trim());
                 }
@@ -274,15 +270,9 @@ public class PhoneGroups {
         String prop = "[^\\s=]+\\s*=\\s*(\\d+)";
         String pat = "^\\s*" + sym + "\\s*" + type + symType;
         switch (propNumber) {
-            case 3:
-                pat += ",\\s*" + prop + ",\\s*" + prop + ",\\s*" + prop;
-                break;
-            case 2:
-                pat += ",\\s*" + prop + ",\\s*" + prop;
-                break;
-            case 1:
-                pat += ",\\s*" + prop;
-                break;
+            case 3 -> pat += ",\\s*" + prop + ",\\s*" + prop + ",\\s*" + prop;
+            case 2 -> pat += ",\\s*" + prop + ",\\s*" + prop;
+            case 1 -> pat += ",\\s*" + prop;
         }
         return pat;
     }

@@ -26,7 +26,7 @@ public class Diacritic extends Xsampa {
 
     private String mode = null;
 
-    private static final Map<Integer, String> modeValues = new TreeMap<Integer, String>();
+    private static final Map<Integer, String> modeValues = new TreeMap<>();
 
     static {
         modeValues.put(0, "rounded");
@@ -84,7 +84,7 @@ public class Diacritic extends Xsampa {
     }
 
     public List<String> getProperties() {
-        List<String> properties = new ArrayList<String>();
+        List<String> properties = new ArrayList<>();
         properties.add(getMode());
         return properties;
     }

@@ -23,7 +23,7 @@ import java.util.TreeMap;
 
 public class XsampaSymbols implements Iterable<String> {
 
-    SortedMap<String, Xsampa> symbols = new TreeMap<String, Xsampa>();
+    SortedMap<String, Xsampa> symbols = new TreeMap<>();
 
     XsampaSymbols() {
     }
@@ -41,11 +41,7 @@ public class XsampaSymbols implements Iterable<String> {
     }
 
     public Boolean hasXsampa(String symbol) {
-        Boolean ret = false;
-        if (symbols.containsKey(symbol)) {
-            ret = true;
-        }
-        return ret;
+        return symbols.containsKey(symbol);
     }
 
     public Iterator<String> iterator() {

@@ -16,18 +16,17 @@
 // Author : Alexis Wilpert
 
 
-
 import java.util.*;
 
 public class Consonant extends Xsampa {
 
-    private String place = null;
-    private String manner = null;
-    private SortedSet<String> mode = new TreeSet<String>();
+    private final String place;
+    private final String manner;
+    private final SortedSet<String> mode = new TreeSet<>();
 
-    private static final Map<Integer, String> placeValues = new TreeMap<Integer, String>();
-    private static final Map<Integer, String> mannerValues = new TreeMap<Integer, String>();
-    private static final Map<Integer, String> modeValues = new TreeMap<Integer, String>();
+    private static final Map<Integer, String> placeValues = new TreeMap<>();
+    private static final Map<Integer, String> mannerValues = new TreeMap<>();
+    private static final Map<Integer, String> modeValues = new TreeMap<>();
 
     static {
 
@@ -92,21 +91,19 @@ public class Consonant extends Xsampa {
     }
 
     public SortedSet<String> getMode() {
-        SortedSet<String> mode = new TreeSet<String>();
-        if (this.mode != null) {
+        SortedSet<String> mode = new TreeSet<>();
+        if (!this.mode.isEmpty()) {
             mode = this.mode;
         }
         return mode;
     }
 
     public List<String> getProperties() {
-        List<String> properties = new ArrayList<String>();
+        List<String> properties = new ArrayList<>();
         properties.add(getPlace());
         properties.add(getManner());
-        if (mode != null) {
-            for (String mode : getMode()) {
-                properties.add(mode);
-            }
+          if (!mode.isEmpty()) {
+            properties.addAll(getMode());
         }
         return properties;
     }
@@ -116,18 +113,10 @@ public class Consonant extends Xsampa {
     }
 
     public static List<String> getPlaceValues() {
-        List<String> placeValues = new ArrayList<String>();
-        for (String value : Consonant.placeValues.values()) {
-            placeValues.add(value);
-        }
-        return placeValues;
+        return new ArrayList<>(Consonant.placeValues.values());
     }
 
     public static List<String> getMannerValues() {
-        List<String> mannerValues = new ArrayList<String>();
-        for (String value : Consonant.mannerValues.values()) {
-            mannerValues.add(value);
-        }
-        return mannerValues;
+        return new ArrayList<>(Consonant.mannerValues.values());
     }
 }

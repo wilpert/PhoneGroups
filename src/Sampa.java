@@ -22,14 +22,13 @@ import java.util.*;
 public class Sampa implements Iterable<String> {
 
     // language --> [ sampa --> [ features ] ]
-    private static SortedMap<String, SortedMap<String, List<String>>> symbols = //
-            new TreeMap<String, SortedMap<String, List<String>>>();
+    private static final SortedMap<String, SortedMap<String, List<String>>> symbols = new TreeMap<>();
 
     public Sampa() {
     }
 
     public void addSymbol(String language, String sampa, String xsampaSeq) {
-        SortedMap<String, List<String>> mapping = new TreeMap<String, List<String>>();
+        SortedMap<String, List<String>> mapping = new TreeMap<>();
         if (symbols.containsKey(language)) {
             mapping = symbols.get(language);
         }
@@ -38,7 +37,7 @@ public class Sampa implements Iterable<String> {
     }
 
     public List<String> getFeatures(String language, String sampa) {
-        List<String> features = new ArrayList<String>();
+        List<String> features = new ArrayList<>();
         try {
             SortedMap<String, List<String>> mapping = symbols.get(language);
             try {
@@ -53,7 +52,7 @@ public class Sampa implements Iterable<String> {
     }
 
     public SortedSet<String> getAllFeatures(String language) {
-        SortedSet<String> features = new TreeSet<String>();
+        SortedSet<String> features = new TreeSet<>();
         try {
             SortedMap<String, List<String>> mapping = symbols.get(language);
             for (String sampa : this.getsampaSymbols(language)) {
@@ -66,10 +65,10 @@ public class Sampa implements Iterable<String> {
     }
 
     public Map<String, SortedSet<String>> getSymbolsWithFeatures(String language, String... featuresToSearch) {
-        Map<String, SortedSet<String>> symbolsWithSides = new TreeMap<String, SortedSet<String>>();
-        SortedSet<String> symbolsL = new TreeSet<String>();
-        SortedSet<String> symbolsR = new TreeSet<String>();
-        SortedSet<String> symbolsLR = new TreeSet<String>();
+        Map<String, SortedSet<String>> symbolsWithSides = new TreeMap<>();
+        SortedSet<String> symbolsL = new TreeSet<>();
+        SortedSet<String> symbolsR = new TreeSet<>();
+        SortedSet<String> symbolsLR = new TreeSet<>();
         for (String sampa : this.getsampaSymbols(language)) {
             List<String> features = this.getFeatures(language, sampa);
             if (featuresToSearch.length == 1) {
@@ -151,7 +150,7 @@ public class Sampa implements Iterable<String> {
     }
 
     private static Boolean containsAll(List<String> list, String[] features) {
-        Boolean res = true;
+        boolean res = true;
         for (String f : features) {
             if (!list.contains(f)) {
                 res = false;
@@ -171,28 +170,28 @@ public class Sampa implements Iterable<String> {
 
     private static List<String> xsampaSeqToFeatures(String xsampa) {
         List<String> features;
-        Boolean seqStarted = false;
-        String sym = "";
+        boolean seqStarted = false;
+        StringBuilder sym = new StringBuilder();
         Character delimiter = null;
-        List<String> tokens = new ArrayList<String>();
+        List<String> tokens = new ArrayList<>();
         for (int i = 0; i < xsampa.length(); i++) {
             if (xsampa.charAt(i) != ' ') {
-                Character ch = xsampa.charAt(i);
+                char ch = xsampa.charAt(i);
                 if (ch == '"' || ch == '\'') {
                     if (!seqStarted) {
                         seqStarted = true;
                         delimiter = ch;
                     } else { // sequence started
                         if (ch != delimiter) {
-                            sym += ch;
+                            sym.append(ch);
                         } else {
-                            tokens.add(sym);
+                            tokens.add(sym.toString());
                             seqStarted = false;
-                            sym = "";
+                            sym = new StringBuilder();
                         }
                     }
                 } else {
-                    sym += ch;
+                    sym.append(ch);
                 }
             }
         }
@@ -201,10 +200,10 @@ public class Sampa implements Iterable<String> {
     }
 
     private static List<String> extractFeatures(List<String> tokens) {
-        List<String> features = new ArrayList<String>();
+        List<String> features = new ArrayList<>();
         Xsampa xsampaToken;
-        Boolean typeSet = false;
-        Boolean isAffricate = false;
+        boolean typeSet = false;
+        boolean isAffricate = false;
         for (String token : tokens) {
             xsampaToken = PhoneGroups.xsampaSymbols.getXsampa(token);
             if (xsampaToken.isVowel()) {
@@ -229,9 +228,7 @@ public class Sampa implements Iterable<String> {
                 features.add(features.indexOf("SEP") - 1, "long");
             }
             try {
-                for (String property : xsampaToken.getProperties()) {
-                    features.add(property);
-                }
+                features.addAll(xsampaToken.getProperties());
             } catch (Exception e) {
                 System.err.println("[ERROR] getting properties for token: " + token);
             }

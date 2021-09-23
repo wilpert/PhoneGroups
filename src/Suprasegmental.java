@@ -26,7 +26,7 @@ public class Suprasegmental extends Xsampa {
 
 	private String id = null;
 
-	private static final Map<Integer, String> idValues = new TreeMap<Integer, String>();
+	private static final Map<Integer, String> idValues = new TreeMap<>();
 
 	static {
 		idValues.put(0, "primary-stress");
@@ -71,7 +71,7 @@ public class Suprasegmental extends Xsampa {
 	}
 
 	public List<String> getProperties() {
-		List<String> properties = new ArrayList<String>();
+		List<String> properties = new ArrayList<>();
 		properties.add(getId());
 		return properties;
 	}

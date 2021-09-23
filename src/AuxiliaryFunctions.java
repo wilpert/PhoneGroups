@@ -18,6 +18,7 @@
 
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -28,7 +29,7 @@ public class AuxiliaryFunctions {
         InputStreamReader readFileIn = null;
         try {
             InputStream FileIn = new FileInputStream(fileStr);
-            readFileIn = new InputStreamReader(FileIn, "UTF-8");
+            readFileIn = new InputStreamReader(FileIn, StandardCharsets.UTF_8);
         } catch (IOException e) {
             System.err.println("\n[ERROR] Could not open: " + fileStr);
             System.exit(1);
@@ -41,7 +42,7 @@ public class AuxiliaryFunctions {
         OutputStreamWriter writeFileOut = null;
         try {
             OutputStream FileOut = new FileOutputStream(fileStr);
-            writeFileOut = new OutputStreamWriter(FileOut, "UTF-8");
+            writeFileOut = new OutputStreamWriter(FileOut, StandardCharsets.UTF_8);
         } catch (IOException e) {
             System.err.println("\n[ERROR] Could not open: " + fileStr);
             System.exit(1);
